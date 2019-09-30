@@ -21,4 +21,7 @@ RUN conda update -n base conda
 RUN conda install -c conda-forge ipyleaflet
 RUN conda install -c anaconda postgresql
 RUN conda install -c conda-forge gdal
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet
+RUN conda install -c conda-forge geopandas
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet\
+    jupyter labextension install jupyterlab-tutorial\
+    jupyter labextension install jupyterlab-spreadsheet
