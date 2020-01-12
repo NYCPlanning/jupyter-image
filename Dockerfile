@@ -1,6 +1,7 @@
 FROM jupyter/datascience-notebook:latest
 
 COPY requirements.txt /tmp/
+COPY install-docker.sh /tmp/
 
 RUN /bin/bash -c "source activate base"
 
@@ -17,6 +18,11 @@ RUN apt update\
     unzip\
     openssh-server\
     openssh-client
+
+RUN sh /tmp/install-docker.sh
+
+RUN groupadd -g 999 docker\ 
+    && usermod -aG docker jovyan
 
 USER jovyan
 
